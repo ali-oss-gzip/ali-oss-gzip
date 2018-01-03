@@ -1,12 +1,11 @@
 {
   "name": "ali-oss-gzip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel lib -d ./",
-    "test": "node tester.js"
+    "test": "node tester.js",
+    "build": "babel lib -d ./"
   },
   "author": "",
   "license": "ISC",
