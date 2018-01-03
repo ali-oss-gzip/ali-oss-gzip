@@ -4,15 +4,11 @@ This node.js module allows the user to upload big files to ALIYUN OSS by compres
 
 ## Usage
 
-### NPM
-
 Install the package:
 ```
 npm install --save ali-oss-gzip
 ```
 
-
-Example use:
 1. Import the module:
 ```
 var AOG = require('ali-oss-gzip')
@@ -35,16 +31,17 @@ const AOG_u = new AOG(
   'testing-bucket'
 );
 ```
-3. Upload the file using the upload_GZIP() function that takes in the following parameters: 
+3. Upload the file using the ```upload_GZIP()``` function that takes in the following parameters: 
 
 | Parameters    | Type          | Description   |
 | ------------- | ------------- | ------------- |
 | sourcePath | String | local path to the file  |
 | targetPath  | String  | designated path within the OSS bucket  |
-| delete | boolean | (optional) delete the file in the local directory |
+| deleteBool | boolean | (optional, default=false) delete the file in the local directory |
 
 Example:
 ```
+AOG_u.upload_GZIP('test2.txt', 'test/test2.txt')
 AOG_u.upload_GZIP('test2.txt', 'test/test2.txt', true)
 
 ```
