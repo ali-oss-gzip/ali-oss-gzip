@@ -34,7 +34,7 @@ module.exports = function () {
   _createClass(ALIYUN_UPLOADER, [{
     key: 'upload',
     value: function upload(sourcePath, targetPath) {
-      (0, _uploader.uploader)(sourcePath, targetPath, this.OSS, this.bucket);
+      (0, _uploader.uploader)(sourcePath, targetPath, this.OSS, this.bucket, true);
     }
   }]);
 

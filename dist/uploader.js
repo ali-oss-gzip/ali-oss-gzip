@@ -8,7 +8,7 @@ exports.uploader = undefined;
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var uploader = exports.uploader = function () {
-	var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(sourcePath, targetPath, r_oss, bucket, options) {
+	var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(sourcePath, targetPath, r_oss, bucket, deleteBool, options) {
 		var oss, ossStream;
 		return regeneratorRuntime.wrap(function _callee$(_context) {
 			while (1) {
@@ -32,7 +32,14 @@ var uploader = exports.uploader = function () {
 								console.log(err);
 								reject();
 							});
-							upload.on('uploaded', resolve);
+							upload.on('uploaded', function () {
+								console.log('Upload complete.');
+								_fs2.default.unlinkSync(sourcePath);
+								console.log('Deleted original file (' + sourcePath + ')');
+								_fs2.default.unlinkSync(newSourcePath);
+								console.log('Deleted generated compressed file (' + newSourcePath + ')');
+								resolve();
+							});
 							var read = _fs2.default.createReadStream(newSourcePath);
 							read.pipe(upload);
 						}));
@@ -45,7 +52,7 @@ var uploader = exports.uploader = function () {
 		}, _callee, this);
 	}));
 
-	return function uploader(_x, _x2, _x3, _x4, _x5) {
+	return function uploader(_x, _x2, _x3, _x4, _x5, _x6) {
 		return _ref.apply(this, arguments);
 	};
 }();
