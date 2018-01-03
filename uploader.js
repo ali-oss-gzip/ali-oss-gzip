@@ -78,7 +78,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 var zlib = require('zlib');
-var gzip = zlib.createGzip();
 
 var newSourcePath;
 var newTargetPath;
@@ -86,6 +85,8 @@ var newTargetPath;
 ;
 
 function zipFiles(sourcePath) {
+	var gzip = zlib.createGzip();
+
 	newSourcePath = newSourcePath + '.gz';
 	newTargetPath = newTargetPath + '.gz';
 	var inp = _fs2.default.createReadStream(sourcePath);
@@ -94,7 +95,16 @@ function zipFiles(sourcePath) {
 	console.log('new source path = ', newSourcePath);
 
 	return new Promise(function (resolve, reject) {
-		out.on('finish', resolve);
+		console.log("running promise");
+		out.on('finish', function () {
+			console.log('zipping complete');
+			resolve();
+		});
+		out.on('error', function (err) {
+			console.log('error in output stream');
+			console.log(err);
+			reject(err);
+		});
 		inp.pipe(gzip).pipe(out);
 	});
 }
