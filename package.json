@@ -8,7 +8,7 @@
     "build": "babel lib -d ./"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "aliyun-oss-upload-stream": "^1.3.0",
     "aliyun-sdk": "^1.11.2",
