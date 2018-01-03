@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel lib -d ./",
-    "serve": "node ./dist/tester.js"
+    "test": "node tester.js"
   },
   "author": "",
   "license": "ISC",

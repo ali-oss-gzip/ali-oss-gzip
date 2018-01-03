@@ -6,5 +6,5 @@ docker run \
 	-v /Users/chanwookim/documents/modules/aliyun-gzip:/src \
 	-w /src \
 	rickydunlop/nodejs-ffmpeg \
-	npm run serve
+	npm run test
 
