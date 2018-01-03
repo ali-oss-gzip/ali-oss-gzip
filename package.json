@@ -1,0 +1,23 @@
+{
+  "name": "aliyun-gzip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel lib -d dist",
+    "serve": "node ./dist/tester.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aliyun-oss-upload-stream": "^1.3.0",
+    "aliyun-sdk": "^1.11.2",
+    "babel-polyfill": "^6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}
