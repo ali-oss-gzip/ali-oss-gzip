@@ -1,4 +1,4 @@
-# ALIYUN Uploader Compressed
+# ALIYUN OSS Uploading Compressed
 
 This node.js module allows the user to upload big files to ALIYUN OSS by compressing the file beforehand and taking care of all uploading operations. 
 
@@ -43,5 +43,16 @@ Example:
 ```
 AOG_u.upload_GZIP('test2.txt', 'test/test2.txt')
 AOG_u.upload_GZIP('test2.txt', 'test/test2.txt', true)
-
 ```
+
+## Contents
+  - lib/: Pre-compiled Javascript files that uses ES7. The actual module consists of compiled version of these using Babel.
+  - .babelrc: Presets definitions used in compiling with Babel.
+  - docker-start.sh: This module can be run on Docker using this bash script. This may be preferable to those using this module in a remote server.
+  - index.js: The main script.
+  - tester.js: An example script using this module.
+  - uploader.js: The script that handles zipping and uploading to ALIYUN OSS.
+  
+## License
+
+ali-oss-gzip is under the <a href="https://github.com/ali-oss-gzip/ali-oss-gzip/blob/master/LICENSE">MIT</a> license.
