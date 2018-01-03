@@ -1,11 +1,11 @@
 {
-  "name": "aliyun-gzip",
+  "name": "ali-oss-gzip",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel lib -d dist",
+    "build": "babel lib -d ./",
     "serve": "node ./dist/tester.js"
   },
   "author": "",
