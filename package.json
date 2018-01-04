@@ -7,7 +7,11 @@
     "test": "node ./examples/multiple-files/index.js",
     "build": "babel lib -d ./"
   },
-  "author": "",
+  "author": "Chan Woo Kim <chanwkim01@gmail.com>",
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/ali-oss-gzip/ali-oss-gzip.git"
+  },
   "license": "MIT",
   "dependencies": {
     "aliyun-oss-upload-stream": "^1.3.0",
