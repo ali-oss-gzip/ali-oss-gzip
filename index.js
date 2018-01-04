@@ -32,8 +32,8 @@ module.exports = function () {
   }
 
   _createClass(ALIYUN_UPLOADER, [{
-    key: 'upload',
-    value: function upload(sourcePath, targetPath, deleteBool) {
+    key: 'upload_GZIP',
+    value: function upload_GZIP(sourcePath, targetPath, deleteBool) {
       return (0, _uploader.uploader)(sourcePath, targetPath, this.OSS, this.bucket, deleteBool);
     }
   }]);
