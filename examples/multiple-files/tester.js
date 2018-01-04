@@ -30,7 +30,7 @@ async function main(leaveOutLastFile){
 			}
 		}
 		let filename = folder+arr[i];
-		await AOG.upload(filename,'test/'+arr[i]);
+		await AOG.upload_GZIP(filename,'test/'+arr[i]);
 	}
 }
 main(true);
