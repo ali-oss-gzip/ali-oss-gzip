@@ -45,6 +45,12 @@ AOG_u.upload_GZIP('test2.txt', 'test/test2.txt')
 AOG_u.upload_GZIP('test2.txt', 'test/test2.txt', true)
 ```
 
+## Other Usages (including using it with Docker for periodic backups)
+The ```examples/``` directories contain folders that have working uses of this module for certain tasks.
+Within the ```examples/``` directory there are:
+  - ```multiple-files/``` - By specifying the parameters in the ```tester.js``` file, the user can choose a directory, which will be looped through to be uploaded to ALIYUN OSS.
+  - ```docker-cronjob/``` - This is a use of this module in integration with Docker to have periodic backups in a remote server. Refer to its own ```README.md``` file in the directory that documents its usage.
+
 ## Contents
   - lib/: Pre-compiled Javascript files that uses ES7. The actual module consists of compiled version of these using Babel.
   - .babelrc: Presets definitions used in compiling with Babel.
