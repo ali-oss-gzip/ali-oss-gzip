@@ -1,0 +1,2 @@
+* * * * * root cd / && env - `cat /env.dev.list` /usr/local/bin/node /index.js >> /var/log/cron.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.
