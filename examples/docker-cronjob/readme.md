@@ -5,19 +5,37 @@
 ```
 docker build -t cron-test .
 ```
-Alternatively, pull it from DockerHub.
+Alternatively, pull it from DockerHub if the configurations showed in this repository is perfectly applicable.
 ```
 docker pull cwkeam/backups-cron-aog
 ```
+**Note**: this docker image contains the ```tester.js```, ```index.js```, and ```corntab``` files shown in this repository. If any of the configurations in these files are not applicable, it is highly recommend to edit those files and re-build the image.
+
 
 ### Run the docker image
 ```
 bash update-backup.sh
 ```
 
-Requirements:
-Edit paths to directories in the volume tag in the bash script.
-Make sure there's a file called env.dev.list that contains the environment variables, and specify the path to the file. Do not edit the path of the file in the virtual machine - this path is used to specify where the cronjob can look for the environment variables.
+#### Requirements:
+
+##### Make sure env.dev.list contains the following values:
+
+```
+ALIYUN_OSS_ACCESS_KEY_ID
+ALIYUN_OSS_SECRET_ACCESS_KEY
+ALIYUN_OSS_ENDPOINT // remove the http:// in this variable. The script adds this automatically.
+ALIYUN_OSS_BUCKET 
+BUCKET_PATH // this specifies the folder in the bucket in which the user designates the backups to be stored in.
+```
+The ```BUCKET_PATH``` variable is kept flexible and is set in the bash script.
+```-e BUCKET_PATH=backups \```
+
+##### Edit paths to directories in the volume tag in the bash script.
+1. ```-v /Users/chanwookim/documents/docker/docker-nodejs-cron-demo/env.dev.list:/env.dev.list \```
+ - Edit the local directory to the file containing the environment variables.
+2. ```-v /Users/chanwookim/documents/docker/testing:/backups``` 
+ - Edit the local directory to the folder containing the backups 
 
 ### Check the logs to make sure that node file is being executed every minute.
 
