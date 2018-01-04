@@ -5,6 +5,10 @@
 ```
 docker build -t cron-test .
 ```
+Alternatively, pull it from DockerHub.
+```
+docker pull cwkeam/backups-cron-aog
+```
 
 ### Run the docker image
 ```
