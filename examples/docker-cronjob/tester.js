@@ -29,8 +29,7 @@ async function main(leaveOutLastFile){
 				break;
 			}
 		}
-		let filename = folder+arr[i];
-		await AOG.upload_GZIP(filename,'test/'+arr[i], true);
+		await AOG.upload_GZIP(filename,process.env.BUCKET_PATH+'/'+arr[i], true);
 	}
 }
 main(true);
