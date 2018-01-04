@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tester.js",
+    "test": "node ./examples/multiple-files/index.js",
     "build": "babel lib -d ./"
   },
   "author": "",

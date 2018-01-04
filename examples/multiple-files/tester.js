@@ -3,7 +3,7 @@ import 'babel-polyfill';
 const fs = require('fs');
 const folder = './testing/';
 
-var Uploader = require('ali-oss-gzip')
+var Uploader = require('./../../index.js')
 
 const AOG = new Uploader(
   process.env.ALIYUN_OSS_ACCESS_KEY_ID,
@@ -22,7 +22,7 @@ async function main(leaveOutLastFile){
 			if this is set to true, the last file in the specified directory will be ignored from this operation.
 	*/
 
-	arr = fs.readdirSync(folder)
+	arr = fs.readdirSync(folder);
 	for(let i in arr){
 		if(leaveOutLastFile){
 			if(i==arr.length-1){
@@ -30,7 +30,7 @@ async function main(leaveOutLastFile){
 			}
 		}
 		let filename = folder+arr[i];
-		await AOG.upload_GZIP(filename,'test/'+arr[i]);
+		await AOG.upload_GZIP(filename,'test/'+arr[i], true);
 	}
 }
 main(true);
